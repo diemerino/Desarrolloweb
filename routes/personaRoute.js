@@ -15,6 +15,11 @@ api.post('/personas', personaController.guardar);
 api.get('/personas', personaController.todos);
 api.get('/personabyID/:id', personaController.buscarPorID);
 
+// METODO PUT Y DELETE
+
+api.put('/personabyID/:id',personaController.actualizar);
+api.delete('/personabyID/:id',personaController.eliminar);
+
 
 // api.post('/autoguardar',autoController.guardar);
 

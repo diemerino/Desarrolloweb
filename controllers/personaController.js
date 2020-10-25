@@ -1,5 +1,6 @@
 'use strict'
 
+const persona = require('../modelos/persona.js');
 // AQUI Cargamos el modelo para usarlo posteriormente en la siguiente clase
 var Persona = require('../modelos/persona.js');
 
@@ -59,6 +60,29 @@ function todos(req, res) {
 
          res.status(200).send({persona})
      })
+}
+
+function actualizar(req,res){
+    let idpersona = req.params.id
+    Persona.findByIdAndUpdate(idpersona,req.body,(err, persona)=>{
+        if(err) return res.status(500).send({message:'error al realizar la peticion'})
+        if(!persona) return res.status(404).send({message:'Error la persona no existe'})
+
+         res.status(200).send('Persona actualizada correctamente')
+    })
+
+}
+
+function eliminar(req,res){
+    let idpersona = req.params.id
+    Persona.findByIdAndDelete(idpersona,req.body,(err, persona)=>{
+        if(err) return res.status(500).send({message:'error al realizar la peticion'})
+        if(!persona) return res.status(404).send({message:'Error la persona no existe'})
+
+         res.status(200).send('Persona eliminada correctamente')
+    })
+   
+
 }
 
 
