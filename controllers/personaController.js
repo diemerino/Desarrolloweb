@@ -90,6 +90,8 @@ function eliminar(req,res){
 module.exports = {
     guardar,
     buscar,
-    buscarPorID,todos
+    buscarPorID,todos,
+    actualizar,
+    eliminar
     
 };
